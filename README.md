@@ -23,6 +23,7 @@
 优先级反转运行图如下：
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/a734b8bd6e3342fa9452eba828f710ce.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbGl5aW51bzIwMTc=,size_19,color_FFFFFF,t_70,g_se,x_16)
+
 **优先级反转后导致高优先级任务得不到调度，会影响系统的实时性，严重时甚至会产生错误结果。**
 举例一个生活中的例子说明优先级反转：
 现在有一个公司，公司内部有3个员工：公司老板，销售经理，销售员。这3个员工的等级是：**公司老板 > 销售经理 > 销售员。**
@@ -30,6 +31,7 @@
 
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/e277ff0c36264e07b4f532f563fb9fd4.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbGl5aW51bzIwMTc=,size_19,color_FFFFFF,t_70,g_se,x_16)
+
 
 ## 3.优先级继承
 
@@ -73,11 +75,15 @@ task1开始执行，task1获取信号A执行handle1()操作，此时切换到tas
 
 死锁将对软件系统带来严重的影响，如何才能避免死锁？
 我们可以使用以下3个方法避免死锁：
+
 **1、每个任务增加信号等待超时限制
-2、每个任务等待获取全部信号资源后再执行其它操作
-3、每个任务避免嵌套使用信号资源**
+
+**2、每个任务等待获取全部信号资源后再执行其它操作
+
+**3、每个任务避免嵌套使用信号资源
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/5fc74419822c40d6aae49a4f0aab76ef.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAbGl5aW51bzIwMTc=,size_19,color_FFFFFF,t_70,g_se,x_16)
+
 
 **超时限制**
 死锁任务在等待信号时可以设定一个超时时间，这个功能可以缓解死锁问题，避免任务出现无限等待的情况。当出现死锁情况时，任务在设定时间内没有得到信号资源，任务则会放弃等待继续执行。
